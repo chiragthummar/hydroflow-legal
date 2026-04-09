@@ -3,686 +3,853 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HydroFlow — App Store Submission Guide</title>
+    <title>HydroFlow - App Store Upload Guide</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0a1628;
             color: #c8d6e5;
             line-height: 1.7;
-        }
-
-        .container {
+            padding: 20px;
             max-width: 860px;
             margin: 0 auto;
-            padding: 40px 20px 80px;
         }
-
-        /* Header */
-        .hero {
-            text-align: center;
-            padding: 60px 0 50px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            margin-bottom: 50px;
-        }
-        .hero .drop-icon {
-            font-size: 52px;
-            display: block;
-            margin-bottom: 16px;
-        }
-        .hero h1 {
-            font-size: 36px;
-            font-weight: 800;
-            color: #fff;
+        h1 {
+            color: #00e5ff;
+            font-size: 32px;
             margin-bottom: 8px;
+            font-weight: 800;
         }
-        .hero .subtitle {
+        h2 {
             color: #00e5ff;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-        .hero p {
-            color: #8899aa;
-            font-size: 15px;
-            max-width: 520px;
-            margin: 0 auto;
-        }
-
-        /* Section */
-        .section {
-            margin-bottom: 48px;
-        }
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-        .section-num {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(0,229,255,0.12);
-            border: 1px solid rgba(0,229,255,0.25);
-            color: #00e5ff;
-            font-size: 13px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        .section-header h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        /* Card */
-        .card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 14px;
-            padding: 20px 22px;
+            font-size: 22px;
+            margin-top: 40px;
             margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0,229,255,0.2);
         }
-        .card h3 {
-            font-size: 13px;
-            font-weight: 700;
-            color: #00e5ff;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+        h3 {
+            color: #e0e6ed;
+            font-size: 17px;
+            margin-top: 24px;
             margin-bottom: 10px;
         }
-
-        /* Table */
-        table { width: 100%; border-collapse: collapse; }
-        td, th {
+        h4 {
+            color: #b0bec5;
+            font-size: 15px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 14px; font-size: 15px; }
+        ul, ol { margin: 0 0 14px 24px; }
+        li { margin-bottom: 8px; font-size: 15px; }
+        a { color: #00e5ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code {
+            background: rgba(0,229,255,0.08);
+            color: #69f0ae;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: 'SF Mono', Menlo, monospace;
+        }
+        pre {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 16px;
+            overflow-x: auto;
+            margin-bottom: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #69f0ae;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0,229,255,0.1);
+            color: #00e5ff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .version { color: #69f0ae; font-size: 14px; margin-bottom: 20px; }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+        .warning {
+            background: rgba(255,171,64,0.08);
+            border: 1px solid rgba(255,171,64,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .warning strong { color: #ffab40; }
+        .success {
+            background: rgba(105,240,174,0.08);
+            border: 1px solid rgba(105,240,174,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .success strong { color: #69f0ae; }
+        .info {
+            background: rgba(41,121,255,0.08);
+            border: 1px solid rgba(41,121,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .info strong { color: #2979ff; }
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .checklist li {
             padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        .checklist li::before {
+            content: "\2610";
+            margin-right: 10px;
+            color: #00e5ff;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
             font-size: 14px;
         }
         th {
-            font-size: 11px;
-            font-weight: 700;
-            color: #8899aa;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding-top: 0;
-        }
-        td:first-child { color: #8899aa; width: 38%; }
-        td:last-child { color: #e8f0f8; font-weight: 500; }
-        tr:last-child td { border-bottom: none; }
-
-        /* Code / URL */
-        code {
             background: rgba(0,229,255,0.08);
-            border: 1px solid rgba(0,229,255,0.15);
             color: #00e5ff;
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-family: 'SF Mono', Monaco, Menlo, monospace;
-            font-size: 13px;
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,229,255,0.15);
         }
-        .url-block {
-            background: rgba(0,229,255,0.05);
-            border: 1px solid rgba(0,229,255,0.15);
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-family: 'SF Mono', Monaco, Menlo, monospace;
-            font-size: 13px;
-            color: #00e5ff;
-            word-break: break-all;
-            margin: 8px 0;
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-
-        /* Checklist */
-        .checklist { list-style: none; }
-        .checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 9px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #00e5ff, #2979ff);
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 800;
             font-size: 14px;
-            color: #c8d6e5;
-        }
-        .checklist li:last-child { border-bottom: none; }
-        .checklist .box {
-            width: 18px;
-            height: 18px;
-            border: 1.5px solid rgba(0,229,255,0.3);
-            border-radius: 5px;
+            margin-right: 10px;
             flex-shrink: 0;
-            margin-top: 1px;
         }
-
-        /* Screenshot sizes */
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .screenshot-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 12px;
-            padding: 14px 16px;
-        }
-        .screenshot-card .device { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-        .screenshot-card .size { font-size: 12px; color: #00e5ff; margin-bottom: 4px; }
-        .screenshot-card .note { font-size: 11px; color: #8899aa; }
-
-        /* Badge */
-        .badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        .badge-required { background: rgba(255,69,58,0.15); color: #ff6b6b; border: 1px solid rgba(255,69,58,0.2); }
-        .badge-optional { background: rgba(255,159,10,0.12); color: #ffa930; border: 1px solid rgba(255,159,10,0.2); }
-        .badge-done { background: rgba(52,199,89,0.12); color: #4cd964; border: 1px solid rgba(52,199,89,0.2); }
-
-        /* IAP table */
-        .iap-row td:first-child { width: 30%; }
-
-        /* Alert */
-        .alert {
+        .step-title {
             display: flex;
-            gap: 12px;
-            padding: 14px 16px;
-            border-radius: 12px;
-            font-size: 14px;
-            margin-bottom: 14px;
+            align-items: center;
+            margin-bottom: 12px;
         }
-        .alert-warning {
-            background: rgba(255,159,10,0.08);
-            border: 1px solid rgba(255,159,10,0.2);
-            color: #ffa930;
-        }
-        .alert-info {
-            background: rgba(0,229,255,0.06);
-            border: 1px solid rgba(0,229,255,0.15);
-            color: #7dd8e8;
-        }
-        .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-        /* Divider */
-        .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 40px 0; }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding-top: 40px;
+        .divider {
+            border: none;
             border-top: 1px solid rgba(255,255,255,0.06);
-            color: #8899aa;
-            font-size: 13px;
+            margin: 30px 0;
         }
-        .footer a { color: #00e5ff; text-decoration: none; }
-
-        @media (max-width: 600px) {
-            .screenshot-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 28px; }
+        .toc {
+            background: rgba(0,229,255,0.04);
+            border: 1px solid rgba(0,229,255,0.1);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 30px;
+        }
+        .toc h3 { color: #00e5ff; margin-bottom: 12px; margin-top: 0; }
+        .toc ol { margin-bottom: 0; }
+        .toc li { font-size: 14px; margin-bottom: 4px; }
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 13px;
+            color: #8899aa;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <!-- Hero -->
-    <div class="hero">
-        <span class="drop-icon">💧</span>
-        <div class="subtitle">App Store Submission</div>
-        <h1>HydroFlow Release Guide</h1>
-        <p>Step-by-step checklist for submitting HydroFlow to the Apple App Store. Follow each section in order.</p>
+    <h1>App Store Upload Guide</h1>
+    <span class="badge">HydroFlow - Smart Water Reminder</span>
+    <p class="version">Version 1.0.1 (Build 3) &bull; Bundle ID: com.shayona.hydroflow.ai</p>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+            <li><a href="#prerequisites">Prerequisites & Certificates</a></li>
+            <li><a href="#appstoreconnect">App Store Connect Setup</a></li>
+            <li><a href="#appinfo">App Information</a></li>
+            <li><a href="#pricing">Pricing & Subscriptions (IAP)</a></li>
+            <li><a href="#metadata">Store Listing Metadata</a></li>
+            <li><a href="#screenshots">Screenshots & App Preview</a></li>
+            <li><a href="#privacy">App Privacy (Data Collection)</a></li>
+            <li><a href="#review">App Review Information</a></li>
+            <li><a href="#legal">Legal Pages (Privacy, Terms, Support)</a></li>
+            <li><a href="#archive">Archive & Upload from Xcode</a></li>
+            <li><a href="#testflight">TestFlight Testing</a></li>
+            <li><a href="#submit">Submit for Review</a></li>
+            <li><a href="#postlaunch">Post-Launch Checklist</a></li>
+            <li><a href="#rejection">Common Rejection Reasons & Fixes</a></li>
+        </ol>
     </div>
 
-    <!-- ─── SECTION 1: Prerequisites ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">1</div>
-            <h2>Prerequisites</h2>
-        </div>
+    <!-- STEP 1: PREREQUISITES -->
+    <h2 id="prerequisites">1. Prerequisites & Certificates</h2>
 
-        <div class="card">
-            <h3>Required Accounts &amp; Enrollments</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Apple Developer Program enrolled ($99/year) — <a href="https://developer.apple.com/programs/" style="color:#00e5ff">developer.apple.com/programs</a></li>
-                <li><span class="box"></span>App Store Connect access — <a href="https://appstoreconnect.apple.com" style="color:#00e5ff">appstoreconnect.apple.com</a></li>
-                <li><span class="box"></span>Agreements, Tax, and Banking completed in App Store Connect</li>
-                <li><span class="box"></span>Xcode 15+ with valid Distribution certificate and Provisioning Profile</li>
+    <div class="step-title"><span class="step-number">1</span><strong>Apple Developer Account</strong></div>
+    <ul class="checklist">
+        <li>Active Apple Developer Program membership ($99/year)</li>
+        <li>Team/Individual enrollment confirmed at <a href="https://developer.apple.com/account" target="_blank">developer.apple.com/account</a></li>
+        <li>Banking & tax information completed in App Store Connect (for paid apps/IAP)</li>
+        <li>Paid Apps Agreement signed (Agreements, Tax, and Banking section)</li>
+    </ul>
+
+    <div class="step-title"><span class="step-number">2</span><strong>Certificates & Provisioning</strong></div>
+    <ul class="checklist">
+        <li>iOS Distribution Certificate created (or Apple Distribution Certificate)</li>
+        <li>App ID registered: <code>com.shayona.hydroflow.ai</code></li>
+        <li>App Group: <code>group.com.shayona.hydroflow.ai</code> (for widgets & watch)</li>
+        <li>Provisioning Profile: App Store Distribution (auto-managed or manual)</li>
+    </ul>
+
+    <div class="step-title"><span class="step-number">3</span><strong>Capabilities & Entitlements</strong></div>
+    <div class="card">
+        <p>Enable these capabilities in your Apple Developer portal for <code>com.shayona.hydroflow.ai</code>:</p>
+        <table>
+            <tr><th>Capability</th><th>Purpose</th><th>Required</th></tr>
+            <tr><td>HealthKit</td><td>Read health data, write water intake</td><td>Yes</td></tr>
+            <tr><td>WeatherKit</td><td>Weather-based goal adjustments</td><td>Yes</td></tr>
+            <tr><td>Push Notifications</td><td>Hydration reminders</td><td>Yes</td></tr>
+            <tr><td>App Groups</td><td>Share data with widgets & watch</td><td>Yes</td></tr>
+            <tr><td>In-App Purchase</td><td>Premium subscriptions</td><td>Yes</td></tr>
+            <tr><td>Background Modes</td><td>Location + Remote Notifications</td><td>Yes</td></tr>
+        </table>
+    </div>
+
+    <div class="warning">
+        <strong>Important:</strong> Also enable HealthKit and App Groups for the Watch app (<code>com.shayona.hydroflow.ai.watchkitapp</code>) and Widget extension (<code>com.shayona.hydroflow.ai.widgets</code>) in the Developer portal.
+    </div>
+
+    <!-- STEP 2: APP STORE CONNECT -->
+    <h2 id="appstoreconnect">2. App Store Connect Setup</h2>
+
+    <div class="step-title"><span class="step-number">1</span><strong>Create New App</strong></div>
+    <ol>
+        <li>Go to <a href="https://appstoreconnect.apple.com" target="_blank">appstoreconnect.apple.com</a></li>
+        <li>Click <strong>My Apps</strong> &rarr; <strong>+</strong> &rarr; <strong>New App</strong></li>
+        <li>Fill in:
+            <ul>
+                <li><strong>Platform:</strong> iOS</li>
+                <li><strong>Name:</strong> HydroFlow - Water Reminder</li>
+                <li><strong>Primary Language:</strong> English (U.S.)</li>
+                <li><strong>Bundle ID:</strong> com.shayona.hydroflow.ai</li>
+                <li><strong>SKU:</strong> hydroflow-ios-001</li>
+                <li><strong>User Access:</strong> Full Access</li>
             </ul>
-        </div>
+        </li>
+    </ol>
 
-        <div class="card">
-            <h3>App Identity</h3>
-            <table>
-                <tr><td>Bundle ID</td><td><code>com.shayona.hydroflow.ai</code></td></tr>
-                <tr><td>App Name</td><td>HydroFlow: Smart Water Reminder</td></tr>
-                <tr><td>SKU</td><td>hydroflow-ai-2026</td></tr>
-                <tr><td>Primary Language</td><td>English (U.S.)</td></tr>
-                <tr><td>Platform</td><td>iOS 17.0+</td></tr>
-            </table>
-        </div>
+    <!-- STEP 3: APP INFORMATION -->
+    <h2 id="appinfo">3. App Information</h2>
+
+    <div class="card">
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>App Name</td><td>HydroFlow - Water Reminder</td></tr>
+            <tr><td>Subtitle</td><td>AI-Powered Water Goals</td></tr>
+            <tr><td>Primary Category</td><td>Health & Fitness</td></tr>
+            <tr><td>Secondary Category</td><td>Lifestyle</td></tr>
+            <tr><td>Content Rating</td><td>4+ (no objectionable content)</td></tr>
+            <tr><td>License Agreement</td><td>Standard Apple EULA (or custom)</td></tr>
+        </table>
     </div>
 
-    <!-- ─── SECTION 2: Create App in App Store Connect ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">2</div>
-            <h2>Create App in App Store Connect</h2>
-        </div>
+    <h3>Content Rights</h3>
+    <ul>
+        <li>Does your app contain, display, or access third-party content? <strong>No</strong></li>
+        <li>Does your app use encryption? <strong>Yes</strong> (uses HTTPS/TLS for Firebase Analytics &mdash; exempt under HTTPS exemption)</li>
+    </ul>
 
-        <div class="card">
-            <h3>New App Setup</h3>
-            <table>
-                <tr><td>Platforms</td><td>iOS</td></tr>
-                <tr><td>Name</td><td>HydroFlow: Smart Water Reminder</td></tr>
-                <tr><td>Primary Language</td><td>English (U.S.)</td></tr>
-                <tr><td>Bundle ID</td><td><code>com.shayona.hydroflow.ai</code></td></tr>
-                <tr><td>SKU</td><td>hydroflow-ai-2026</td></tr>
-                <tr><td>User Access</td><td>Full Access</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>App Information</h3>
-            <table>
-                <tr><td>Category</td><td>Health &amp; Fitness</td></tr>
-                <tr><td>Secondary Category</td><td>Lifestyle</td></tr>
-                <tr><td>Age Rating</td><td>4+ (no objectionable content)</td></tr>
-                <tr><td>Content Rights</td><td>Does not contain third-party content</td></tr>
-            </table>
-        </div>
+    <h3>Age Rating Questionnaire</h3>
+    <div class="card">
+        <p>Answer <strong>None</strong> to all questions (no violence, gambling, drugs, sexual content, etc.). This gives a <strong>4+</strong> rating.</p>
+        <ul>
+            <li>Medical/Treatment Information: <strong>No</strong> (app is for wellness tracking, not medical treatment)</li>
+            <li>Unrestricted Web Access: <strong>No</strong></li>
+        </ul>
     </div>
 
-    <!-- ─── SECTION 3: App Metadata ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">3</div>
-            <h2>App Metadata (Localisation)</h2>
-        </div>
+    <!-- STEP 4: PRICING & IAP -->
+    <h2 id="pricing">4. Pricing & Subscriptions (IAP)</h2>
 
-        <div class="card">
-            <h3>App Name &amp; Subtitle</h3>
-            <table>
-                <tr><td>Name (30 chars)</td><td>HydroFlow: Water Reminder</td></tr>
-                <tr><td>Subtitle (30 chars)</td><td>Daily Hydration Tracker</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Description (4000 chars max)</h3>
-            <p style="font-size:14px; color:#c8d6e5; line-height:1.7; white-space:pre-line;">
-Stay hydrated, stay healthy. HydroFlow turns drinking water into an engaging daily habit with a beautiful gamified experience.
-
-🌊 SMART HYDRATION TRACKING
-• Log water and 20+ beverages in one tap
-• Smart hydration factor — coffee, juice, tea all count correctly
-• Track caffeine, calories, and vitamins alongside hydration
-• HealthKit integration writes water intake to Apple Health
-
-🌿 VIRTUAL GARDEN
-• Grow plants powered by your hydration habits
-• 5 growth stages from seed to full bloom
-• Plants wilt if you don't drink enough — stay on track!
-• Collect all 10 plant species (5 free, 5 Pro)
-
-⏰ INTELLIGENT REMINDERS
-• Location-based triggers (gym, office, outdoors)
-• Weather-aware nudges in heat or high UV
-• Screen time detection after long phone sessions
-• Fully customisable quiet hours
-
-📊 HEALTH INSIGHTS (PRO)
-• Hydration vs Sleep correlation charts
-• Hydration vs Resting Heart Rate trends
-• AI-powered goal recommendations
-• Full history with week / month / 3-month analytics
-
-💎 HYDROFLOW PRO
-• All 10 garden plants
-• Full history &amp; charts
-• Smart Reminders
-• Health Insights
-• Export data as CSV
-• Apple Watch app
-• All widget sizes
-
-Free forever: water logging, basic reminders, 5 plants, daily stats, caffeine tracking.
-
-Download HydroFlow and make hydration a habit you actually enjoy.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Keywords (100 chars max — comma separated)</h3>
-            <div class="url-block">water,hydration,reminder,tracker,health,fitness,drink,daily,habit,garden,wellness,goal</div>
-        </div>
-
-        <div class="card">
-            <h3>Promotional Text (170 chars — updatable without review)</h3>
-            <p style="font-size:14px; color:#c8d6e5;">Grow your garden by staying hydrated! Log water, track health, and build a lasting habit. Try Pro free for 7 days.</p>
-        </div>
-
-        <div class="card">
-            <h3>URLs</h3>
-            <table>
-                <tr><td>Privacy Policy URL <span class="badge badge-required">Required</span></td><td></td></tr>
-                <tr><td></td><td class="url-block" style="padding:8px 12px">https://chiragthummar.github.io/hydroflow-legal/privacy-policy.html</td></tr>
-                <tr><td>Support URL <span class="badge badge-required">Required</span></td><td></td></tr>
-                <tr><td></td><td class="url-block" style="padding:8px 12px">https://chiragthummar.github.io/hydroflow-legal/support.html</td></tr>
-                <tr><td>Marketing URL <span class="badge badge-optional">Optional</span></td><td><code>https://chiragthummar.github.io/hydroflow-legal/</code></td></tr>
-            </table>
-        </div>
+    <h3>App Price</h3>
+    <div class="success">
+        <strong>Free</strong> &mdash; The app is free to download with optional premium subscription.
     </div>
 
-    <!-- ─── SECTION 4: Screenshots ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">4</div>
-            <h2>Screenshots &amp; Preview</h2>
-        </div>
+    <h3>Create Subscription Group</h3>
+    <ol>
+        <li>Go to <strong>Subscriptions</strong> tab in App Store Connect</li>
+        <li>Click <strong>+</strong> to create subscription group: <code>HydroFlow Premium</code></li>
+        <li>Reference Name: <code>hydroflow_premium</code></li>
+    </ol>
 
-        <div class="alert alert-warning">
-            <span class="alert-icon">⚠️</span>
-            <span>At minimum, upload screenshots for <strong>6.9" iPhone</strong> (iPhone 16 Pro Max). These will be used for all iPhone sizes unless you upload device-specific ones.</span>
-        </div>
+    <h3>Add Subscription Products</h3>
+    <table>
+        <tr><th>Product</th><th>Product ID</th><th>Type</th><th>Price (US)</th><th>Trial</th></tr>
+        <tr>
+            <td>Monthly</td>
+            <td><code>com.shayona.hydroflow.ai.premium.monthly</code></td>
+            <td>Auto-Renewable</td>
+            <td>$4.99/mo</td>
+            <td>7-day free</td>
+        </tr>
+        <tr>
+            <td>Annual</td>
+            <td><code>com.shayona.hydroflow.ai.premium.annual</code></td>
+            <td>Auto-Renewable</td>
+            <td>$29.99/yr</td>
+            <td>7-day free</td>
+        </tr>
+        <tr>
+            <td>Lifetime</td>
+            <td><code>com.shayona.hydroflow.ai.premium.lifetime</code></td>
+            <td>Non-Consumable</td>
+            <td>$49.99</td>
+            <td>N/A</td>
+        </tr>
+    </table>
 
-        <div class="screenshot-grid">
-            <div class="screenshot-card">
-                <div class="device">iPhone 16 Pro Max</div>
-                <div class="size">1320 × 2868 px</div>
-                <div class="note">6.9" — Required</div>
-            </div>
-            <div class="screenshot-card">
-                <div class="device">iPhone 16 Pro</div>
-                <div class="size">1206 × 2622 px</div>
-                <div class="note">6.3" — Optional</div>
-            </div>
-            <div class="screenshot-card">
-                <div class="device">iPhone SE 3rd gen</div>
-                <div class="size">750 × 1334 px</div>
-                <div class="note">4.7" — Optional</div>
-            </div>
-            <div class="screenshot-card">
-                <div class="device">iPad Pro 13"</div>
-                <div class="size">2064 × 2752 px</div>
-                <div class="note">Required if iPad supported</div>
-            </div>
-        </div>
+    <h4>For Each Subscription Product:</h4>
+    <ol>
+        <li><strong>Reference Name:</strong> HydroFlow Premium Monthly / Annual</li>
+        <li><strong>Subscription Duration:</strong> 1 Month / 1 Year</li>
+        <li><strong>Subscription Price:</strong> Set prices per territory</li>
+        <li><strong>Free Trial:</strong> 7 Days (configure in Introductory Offers)</li>
+        <li><strong>Grace Period:</strong> 16 Days</li>
+        <li><strong>Localization:</strong> Add display name &amp; description for each language</li>
+        <li><strong>Review Screenshot:</strong> Upload a screenshot of the paywall</li>
+    </ol>
 
-        <div class="card" style="margin-top:14px">
-            <h3>Recommended Screens to Capture (3–10 per device)</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Home screen — water bottle + today's stats + quick log</li>
-                <li><span class="box"></span>Log drink — quick log sheet with beverage options</li>
-                <li><span class="box"></span>Garden — featured plant growing</li>
-                <li><span class="box"></span>History — hydration chart with stats grid</li>
-                <li><span class="box"></span>Smart Reminders — location + weather cards</li>
-                <li><span class="box"></span>Paywall — Pro features comparison</li>
-                <li><span class="box"></span>Liquid Library — full 20-item beverage grid</li>
+    <h4>Subscription Localization (English):</h4>
+    <div class="card">
+        <p><strong>Display Name:</strong> HydroFlow Premium</p>
+        <p><strong>Description:</strong> Unlock AI goals, full history, 20+ plants, Apple Watch, all widgets, and smart reminders.</p>
+    </div>
+
+    <h4>Service Level Hierarchy:</h4>
+    <div class="card">
+        <p>Level 1 (highest): <strong>Annual</strong></p>
+        <p>Level 2: <strong>Monthly</strong></p>
+        <p><em>Lifetime is a non-consumable IAP, not part of the subscription group.</em></p>
+    </div>
+
+    <div class="warning">
+        <strong>Don't Forget:</strong> Each subscription product needs a <strong>Review Screenshot</strong> showing the subscription paywall/UI. Without it, the IAP will stay in "Missing Metadata" status and block your submission.
+    </div>
+
+    <!-- STEP 5: METADATA -->
+    <h2 id="metadata">5. Store Listing Metadata</h2>
+
+    <h3>Keywords (100 char max)</h3>
+    <pre>water reminder,hydration tracker,drink water,health goals,HealthKit,Apple Watch,wellness,AI health</pre>
+
+    <h3>Promotional Text (170 char max)</h3>
+    <div class="card">
+        <p><em>Can be updated anytime without app review:</em></p>
+        <pre>Stay hydrated with AI-powered goals, smart reminders, and a virtual garden that grows with every sip. Track water, caffeine, meals &amp; more.</pre>
+    </div>
+
+    <h3>Description (4000 char max)</h3>
+    <div class="info">
+        <strong>Tip:</strong> The first 3 lines are visible before "Read More" is tapped. Front-load your best selling points there.
+    </div>
+    <pre>Introducing HydroFlow - the intelligent hydration companion that transforms how you care for your health.
+
+Staying hydrated is one of the easiest ways to boost your energy, improve skin clarity, and support overall wellness. HydroFlow makes hydration effortless, personalized, and rewarding.
+
+SMART HYDRATION GOALS
+Our AI-powered algorithm learns your lifestyle, climate, activity level, and personal health data to create custom water intake goals uniquely suited to you.
+
+INTELLIGENT REMINDERS
+Get perfectly-timed hydration reminders that respect your schedule. Smart location-based and weather-based alerts keep you on track wherever you go.
+
+GROW YOUR GARDEN
+Every glass of water helps your virtual garden flourish. Watch plants progress from seed to full bloom as you stay hydrated. Miss your goals and they start wilting!
+
+COMPREHENSIVE TRACKING
+Log water and beverages with ease. Track caffeine intake, manage meal plans, and set medicine reminders - all in one beautiful app.
+
+HEALTH INSIGHTS
+Connect with Apple Health for personalized correlations between hydration, sleep, exercise, and heart rate. See how water intake affects your overall wellness.
+
+PREMIUM FEATURES
+- AI-Powered Smart Goals (weather + activity adjusted)
+- Full History with Weekly/Monthly/Yearly Charts
+- 10 Beautiful Garden Plants to Grow
+- Apple Watch Companion App
+- All Widget Styles + Live Activities
+- Smart Location & Weather Reminders
+- Health Correlation Dashboard
+- Data Export (CSV)
+- Medicine & Meal Reminders
+
+FREE FEATURES
+- Daily Water Tracking with Quick Log
+- Basic Hydration Reminders
+- 5 Free Garden Plants
+- 7-Day History
+- HealthKit Sync
+- Home Screen Widget
+
+Download HydroFlow and start your hydration journey today!</pre>
+
+    <h3>What's New (Version Notes)</h3>
+    <pre>Version 1.0.1:
+- Fixed meal planner reminder notifications
+- Improved notification scheduling reliability
+- Bug fixes and performance improvements</pre>
+
+    <h3>Support URL</h3>
+    <pre>https://chiragthummar.github.io/hydroflow-legal/support.html</pre>
+
+    <h3>Marketing URL (optional)</h3>
+    <pre>https://chiragthummar.github.io/hydroflow-legal/</pre>
+
+    <h3>Privacy Policy URL (required)</h3>
+    <pre>https://chiragthummar.github.io/hydroflow-legal/privacy-policy.html</pre>
+
+    <!-- STEP 6: SCREENSHOTS -->
+    <h2 id="screenshots">6. Screenshots & App Preview</h2>
+
+    <div class="warning">
+        <strong>Required Sizes:</strong> You must upload screenshots for at least the two largest device sizes. All other sizes can use auto-generated previews.
+    </div>
+
+    <h3>Required Screenshot Sizes</h3>
+    <table>
+        <tr><th>Device</th><th>Size (pixels)</th><th>Required</th></tr>
+        <tr><td>iPhone 6.9" (16 Pro Max)</td><td>1320 x 2868</td><td>Yes</td></tr>
+        <tr><td>iPhone 6.7" (15 Pro Max / 15 Plus)</td><td>1290 x 2796</td><td>Yes</td></tr>
+        <tr><td>iPhone 6.5" (14 Plus / 13 Pro Max)</td><td>1284 x 2778</td><td>Optional (fallback to 6.7")</td></tr>
+        <tr><td>iPhone 5.5" (SE 3rd gen)</td><td>1242 x 2208</td><td>Optional</td></tr>
+    </table>
+
+    <h3>Recommended Screenshots (6-10 per size)</h3>
+    <div class="card">
+        <ol>
+            <li><strong>Home Screen</strong> &mdash; Circular progress ring, quick log buttons, daily stats</li>
+            <li><strong>Smart Reminders</strong> &mdash; Location/weather-based intelligent reminders</li>
+            <li><strong>Garden</strong> &mdash; Virtual plants growing with hydration progress</li>
+            <li><strong>Health Insights</strong> &mdash; Correlations dashboard with charts</li>
+            <li><strong>Beverage Tracking</strong> &mdash; Multiple drink types + caffeine monitor</li>
+            <li><strong>Meal & Medicine</strong> &mdash; Meal planner + medicine reminder views</li>
+            <li><strong>Widgets</strong> &mdash; Home screen + Lock screen widgets + Live Activity</li>
+            <li><strong>History</strong> &mdash; Weekly/monthly charts and streaks</li>
+            <li><strong>Apple Watch</strong> &mdash; Watch app companion view</li>
+            <li><strong>Paywall</strong> &mdash; Premium features overview</li>
+        </ol>
+    </div>
+
+    <h3>Apple Watch Screenshots</h3>
+    <table>
+        <tr><th>Device</th><th>Size (pixels)</th></tr>
+        <tr><td>Apple Watch Ultra 2 (49mm)</td><td>410 x 502</td></tr>
+        <tr><td>Apple Watch Series 10 (46mm)</td><td>416 x 496</td></tr>
+    </table>
+
+    <div class="info">
+        <strong>Tip:</strong> Use the Xcode Simulator to capture screenshots. Go to <strong>Device &rarr; Take Screenshot</strong> or press <code>Cmd + S</code>. For marketing frames, use tools like Rotato, Screenshots Pro, or AppMockUp.
+    </div>
+
+    <!-- STEP 7: PRIVACY -->
+    <h2 id="privacy">7. App Privacy (Data Collection Labels)</h2>
+
+    <div class="warning">
+        <strong>Critical:</strong> Apple requires you to accurately declare all data collection in the App Privacy section. Incorrect declarations can cause rejection.
+    </div>
+
+    <h3>Data Types to Declare</h3>
+    <table>
+        <tr><th>Data Type</th><th>Collection</th><th>Usage</th><th>Linked to User</th><th>Tracking</th></tr>
+        <tr>
+            <td>Health & Fitness</td>
+            <td>Yes</td>
+            <td>App Functionality</td>
+            <td>No (on-device only)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Precise Location</td>
+            <td>Yes</td>
+            <td>App Functionality</td>
+            <td>No (on-device only)</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Diagnostics (Crash Data)</td>
+            <td>Yes</td>
+            <td>App Functionality</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Usage Data (Analytics)</td>
+            <td>Yes</td>
+            <td>Analytics</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Purchase History</td>
+            <td>Yes</td>
+            <td>App Functionality</td>
+            <td>No</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    <h3>Step-by-Step Privacy Questionnaire</h3>
+    <ol>
+        <li>Go to your app in App Store Connect &rarr; <strong>App Privacy</strong></li>
+        <li>Click <strong>Get Started</strong></li>
+        <li><strong>"Does your app collect data?"</strong> &rarr; <strong>Yes</strong></li>
+        <li>Select data types:
+            <ul>
+                <li><strong>Health & Fitness</strong> &rarr; Health (HealthKit data)</li>
+                <li><strong>Location</strong> &rarr; Precise Location</li>
+                <li><strong>Diagnostics</strong> &rarr; Crash Data, Performance Data</li>
+                <li><strong>Usage Data</strong> &rarr; Product Interaction</li>
+                <li><strong>Purchases</strong> &rarr; Purchase History</li>
             </ul>
-        </div>
-
-        <div class="alert alert-info">
-            <span class="alert-icon">💡</span>
-            <span>Take screenshots on the simulator at <strong>160F459B-E122-41D9-BD36-4B2A67FEAF5A</strong> (iPhone 16 Pro). Use Xcode's simulator File → Save Screenshot or press <code>⌘S</code>.</span>
-        </div>
-    </div>
-
-    <!-- ─── SECTION 5: In-App Purchases ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">5</div>
-            <h2>In-App Purchases / Subscriptions</h2>
-        </div>
-
-        <div class="alert alert-warning">
-            <span class="alert-icon">⚠️</span>
-            <span>Create all 3 subscription products in App Store Connect <strong>before</strong> submitting the app for review. The app will crash at paywall without them.</span>
-        </div>
-
-        <div class="card">
-            <h3>Subscription Group</h3>
-            <table>
-                <tr><td>Group Name</td><td>HydroFlow Pro</td></tr>
-                <tr><td>Reference Name</td><td>HydroFlow Pro</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Product 1 — Monthly</h3>
-            <table class="iap-row">
-                <tr><td>Product ID</td><td><code>com.shayona.hydroflow.ai.premium.monthly</code></td></tr>
-                <tr><td>Reference Name</td><td>HydroFlow Pro Monthly</td></tr>
-                <tr><td>Subscription Duration</td><td>1 Month</td></tr>
-                <tr><td>Price</td><td>$2.99 / month (Tier 3)</td></tr>
-                <tr><td>Free Trial</td><td>None</td></tr>
-                <tr><td>Display Name</td><td>Monthly</td></tr>
-                <tr><td>Description</td><td>Full access to all HydroFlow Pro features, billed monthly.</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Product 2 — Annual (with Trial)</h3>
-            <table class="iap-row">
-                <tr><td>Product ID</td><td><code>com.shayona.hydroflow.ai.premium.annual</code></td></tr>
-                <tr><td>Reference Name</td><td>HydroFlow Pro Annual</td></tr>
-                <tr><td>Subscription Duration</td><td>1 Year</td></tr>
-                <tr><td>Price</td><td>$19.99 / year (Tier 20)</td></tr>
-                <tr><td>Free Trial</td><td>7 Days</td></tr>
-                <tr><td>Display Name</td><td>Annual</td></tr>
-                <tr><td>Description</td><td>Full access to all HydroFlow Pro features. Try free for 7 days, then $19.99/year.</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Product 3 — Lifetime (Non-Consumable)</h3>
-            <table class="iap-row">
-                <tr><td>Product ID</td><td><code>com.shayona.hydroflow.ai.premium.lifetime</code></td></tr>
-                <tr><td>Reference Name</td><td>HydroFlow Pro Lifetime</td></tr>
-                <tr><td>Type</td><td>Non-Consumable</td></tr>
-                <tr><td>Price</td><td>$49.99 (Tier 50)</td></tr>
-                <tr><td>Display Name</td><td>Lifetime</td></tr>
-                <tr><td>Description</td><td>One-time purchase for lifetime access to all HydroFlow Pro features.</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- ─── SECTION 6: App Privacy ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">6</div>
-            <h2>App Privacy (Nutrition Label)</h2>
-        </div>
-
-        <div class="card">
-            <h3>Data Types Collected</h3>
-            <table>
-                <tr><th>Data Type</th><th>Collected?</th><th>Linked to User</th><th>Used For</th></tr>
-                <tr><td>Health &amp; Fitness</td><td>Yes</td><td>No</td><td>App Functionality</td></tr>
-                <tr><td>Crash Data</td><td>Yes</td><td>No</td><td>App Functionality</td></tr>
-                <tr><td>Performance Data</td><td>Yes</td><td>No</td><td>Analytics</td></tr>
-                <tr><td>Other Diagnostics</td><td>Yes</td><td>No</td><td>App Functionality</td></tr>
-                <tr><td>Location</td><td>Yes</td><td>No</td><td>App Functionality (Smart Reminders)</td></tr>
-                <tr><td>Purchases</td><td>Yes</td><td>No</td><td>App Functionality</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Third-Party SDKs (Declare)</h3>
-            <table>
-                <tr><th>SDK</th><th>Purpose</th><th>Privacy Policy</th></tr>
-                <tr><td>Firebase Analytics</td><td>Usage analytics</td><td>Google Privacy Policy</td></tr>
-                <tr><td>Firebase Crashlytics</td><td>Crash reporting</td><td>Google Privacy Policy</td></tr>
-                <tr><td>StoreKit 2</td><td>Subscriptions</td><td>Apple Privacy Policy</td></tr>
-                <tr><td>HealthKit</td><td>Health data read/write</td><td>Apple Privacy Policy</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- ─── SECTION 7: Review Information ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">7</div>
-            <h2>Review Information</h2>
-        </div>
-
-        <div class="card">
-            <h3>Sign-In Required</h3>
-            <table>
-                <tr><td>Sign-In Required</td><td>No — no account or login required</td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h3>Notes for App Review (copy-paste)</h3>
-            <div style="font-size:14px; color:#c8d6e5; line-height:1.7; background:rgba(255,255,255,0.02); padding:14px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.06);">
-                <p>HydroFlow is a water tracking and hydration reminder app. It does not require an account or login.</p>
-                <br>
-                <p><strong>HealthKit:</strong> The app reads weight, workouts, and sleep data from HealthKit to personalise hydration goals. It writes water intake back to HealthKit. The usage description is shown during onboarding before the permission prompt. HealthKit features are entirely optional — the app functions without granting access.</p>
-                <br>
-                <p><strong>Location:</strong> Location is used only for Smart Reminders (Pro feature) — to trigger hydration nudges when the user arrives at the gym, office, or outdoors. Location permission is requested only when the user enables this feature. The app does not transmit location data externally.</p>
-                <br>
-                <p><strong>Notifications:</strong> Reminders are local push notifications only — no server-side push. The user controls all reminder schedules in Settings.</p>
-                <br>
-                <p><strong>In-App Purchases:</strong> Three subscription tiers are available (Monthly $2.99, Annual $19.99 with 7-day free trial, Lifetime $49.99). Premium features are clearly marked with a lock icon. The app is fully usable without purchasing — free tier includes core water logging, 5 garden plants, basic reminders, and daily stats.</p>
-                <br>
-                <p><strong>Test note:</strong> In the Sandbox environment, StoreKit purchases can be tested with a Sandbox Apple ID. All features are accessible without purchasing in the Simulator.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>Contact Details (for Review Team)</h3>
-            <table>
-                <tr><td>First Name</td><td>Shayona</td></tr>
-                <tr><td>Last Name</td><td>—</td></tr>
-                <tr><td>Phone</td><td>Your phone number</td></tr>
-                <tr><td>Email</td><td>support@hydroflow.app</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- ─── SECTION 8: Build & Archive ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">8</div>
-            <h2>Build &amp; Archive in Xcode</h2>
-        </div>
-
-        <div class="card">
-            <h3>Steps to Archive &amp; Upload</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Set scheme to <strong>HydroFlow</strong>, destination to <strong>Any iOS Device (arm64)</strong></li>
-                <li><span class="box"></span>Bump version: <code>CFBundleShortVersionString</code> → e.g. <code>1.0.0</code></li>
-                <li><span class="box"></span>Bump build number: <code>CFBundleVersion</code> → e.g. <code>1</code></li>
-                <li><span class="box"></span>Xcode menu → Product → Archive</li>
-                <li><span class="box"></span>Organiser opens → click <strong>Distribute App</strong></li>
-                <li><span class="box"></span>Select <strong>App Store Connect</strong> → Next</li>
-                <li><span class="box"></span>Select <strong>Upload</strong> → Next</li>
-                <li><span class="box"></span>Enable: Strip Swift symbols, Bitcode (if applicable), Upload symbols</li>
-                <li><span class="box"></span>Select Distribution Certificate &amp; Provisioning Profile → Next → Upload</li>
-                <li><span class="box"></span>Wait for build to appear in App Store Connect (5–30 min)</li>
+        </li>
+        <li>For each data type, answer:
+            <ul>
+                <li><strong>Used for tracking?</strong> No</li>
+                <li><strong>Linked to user's identity?</strong> No</li>
+                <li><strong>Purposes:</strong> App Functionality / Analytics</li>
             </ul>
-        </div>
+        </li>
+        <li>Click <strong>Publish</strong></li>
+    </ol>
 
-        <div class="alert alert-info">
-            <span class="alert-icon">💡</span>
-            <span>Run <code>xcodegen generate</code> before archiving to ensure <code>project.pbxproj</code> is up to date.</span>
-        </div>
+    <div class="success">
+        <strong>Note:</strong> HydroFlow does NOT use ATT (App Tracking Transparency) because no third-party tracking or advertising is performed. Firebase Analytics is configured for first-party analytics only.
     </div>
 
-    <!-- ─── SECTION 9: Submission Checklist ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">9</div>
-            <h2>Final Submission Checklist</h2>
-        </div>
+    <!-- STEP 8: REVIEW INFO -->
+    <h2 id="review">8. App Review Information</h2>
 
-        <div class="card">
-            <h3>App Store Connect — Version Information</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>App name &amp; subtitle filled</li>
-                <li><span class="box"></span>Description pasted (≤ 4000 chars)</li>
-                <li><span class="box"></span>Keywords filled (≤ 100 chars)</li>
-                <li><span class="box"></span>Promotional text filled</li>
-                <li><span class="box"></span>Support URL set → <code>https://chiragthummar.github.io/hydroflow-legal/support.html</code></li>
-                <li><span class="box"></span>Privacy Policy URL set → <code>https://chiragthummar.github.io/hydroflow-legal/privacy-policy.html</code></li>
-                <li><span class="box"></span>Screenshots uploaded (6.9" required)</li>
-                <li><span class="box"></span>App icon 1024×1024 uploaded (no alpha channel)</li>
-                <li><span class="box"></span>Build selected from uploaded builds</li>
-                <li><span class="box"></span>In-App Purchases added to version</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>App Privacy Questionnaire</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Privacy Nutrition Label completed in App Information</li>
-                <li><span class="box"></span>All data types declared</li>
-                <li><span class="box"></span>Data usage purposes set correctly</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Review Submission</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Review notes filled (copy from Section 7)</li>
-                <li><span class="box"></span>Contact details added</li>
-                <li><span class="box"></span>Sign-in required set to "No"</li>
-                <li><span class="box"></span>Export Compliance — No encryption beyond Apple's standard (answer "No" to encryption questions)</li>
-                <li><span class="box"></span>Content Rights — No third-party content</li>
-                <li><span class="box"></span>Age rating completed (4+)</li>
-                <li><span class="box"></span>Click <strong>Submit for Review</strong> 🚀</li>
-            </ul>
-        </div>
+    <h3>Contact Information</h3>
+    <div class="card">
+        <table>
+            <tr><th>Field</th><th>Value</th></tr>
+            <tr><td>First Name</td><td>Chirag</td></tr>
+            <tr><td>Last Name</td><td>Thummar</td></tr>
+            <tr><td>Phone</td><td>(Your phone number)</td></tr>
+            <tr><td>Email</td><td>support@hydroflow.app</td></tr>
+        </table>
     </div>
 
-    <!-- ─── SECTION 10: After Approval ─── -->
-    <div class="section">
-        <div class="section-header">
-            <div class="section-num">10</div>
-            <h2>After Approval</h2>
-        </div>
+    <h3>Demo Account</h3>
+    <div class="info">
+        <strong>Not Required</strong> &mdash; HydroFlow does not require login. The app is fully functional without an account.
+    </div>
 
-        <div class="card">
-            <h3>Release Options</h3>
-            <table>
-                <tr><td>Manual Release</td><td>App stays in Ready for Sale but not visible — you release manually when ready</td></tr>
-                <tr><td>Automatic Release</td><td>Goes live immediately after approval</td></tr>
-                <tr><td>Scheduled Release</td><td>Set a date/time for the app to go live</td></tr>
-            </table>
-        </div>
+    <h3>Review Notes</h3>
+    <div class="card">
+        <p>Copy this into the <strong>Notes</strong> field for the reviewer:</p>
+        <pre>HydroFlow is a hydration tracking app. No login required.
 
-        <div class="card">
-            <h3>Post-Launch Checklist</h3>
-            <ul class="checklist">
-                <li><span class="box"></span>Monitor Firebase Crashlytics for Day 1 crashes</li>
-                <li><span class="box"></span>Test Sandbox purchases on a real device</li>
-                <li><span class="box"></span>Reply to early reviews within 24–48h</li>
-                <li><span class="box"></span>Monitor HealthKit permission denial rate in Firebase</li>
-                <li><span class="box"></span>Check subscription conversion rate in App Store Connect → Sales &amp; Trends</li>
+HEALTHKIT: The app reads body weight, workouts, sleep, heart rate, and active energy to personalize hydration goals. It writes dietary water intake. To test: go to Settings > HealthKit toggle.
+
+LOCATION: Used for smart reminders only. Go to Settings > Smart Reminders > Location Triggers to configure geo-fenced reminders (e.g., remind at gym). Location is never sent to any server.
+
+WEATHER: WeatherKit is used to adjust hydration goals based on temperature/humidity.
+
+SUBSCRIPTIONS: The app has a 7-day free trial for monthly ($4.99/mo) and annual ($29.99/yr) plans, plus a $49.99 lifetime option. To test the paywall, tap the crown icon or any PRO-labeled feature.
+
+NOTIFICATIONS: The app schedules local notifications for water reminders, meal reminders, and medicine reminders.
+
+APPLE WATCH: Companion app for quick water logging and viewing progress.
+
+WIDGETS: Home screen widgets (small, medium) and lock screen widgets for quick progress view. Live Activity shows real-time hydration progress.</pre>
+    </div>
+
+    <!-- STEP 9: LEGAL PAGES -->
+    <h2 id="legal">9. Legal Pages (Privacy, Terms, Support)</h2>
+
+    <div class="card">
+        <p>These pages must be hosted and publicly accessible before submission:</p>
+        <table>
+            <tr><th>Page</th><th>URL</th><th>Status</th></tr>
+            <tr>
+                <td>Privacy Policy</td>
+                <td><code>https://chiragthummar.github.io/hydroflow-legal/privacy-policy.html</code></td>
+                <td>Required</td>
+            </tr>
+            <tr>
+                <td>Terms of Use</td>
+                <td><code>https://chiragthummar.github.io/hydroflow-legal/terms-of-use.html</code></td>
+                <td>Recommended</td>
+            </tr>
+            <tr>
+                <td>Support</td>
+                <td><code>https://chiragthummar.github.io/hydroflow-legal/support.html</code></td>
+                <td>Required</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>How to Host on GitHub Pages</h3>
+    <ol>
+        <li>Create a GitHub repo: <code>hydroflow-legal</code> (public)</li>
+        <li>Add your HTML files: <code>privacy-policy.html</code>, <code>terms-of-use.html</code>, <code>support.html</code></li>
+        <li>Go to repo <strong>Settings</strong> &rarr; <strong>Pages</strong></li>
+        <li>Source: <strong>Deploy from a branch</strong> &rarr; <strong>main</strong> &rarr; <strong>/ (root)</strong></li>
+        <li>Save. Your pages will be live at <code>https://chiragthummar.github.io/hydroflow-legal/</code></li>
+        <li>Wait 2-5 minutes for deployment, then verify each URL loads correctly</li>
+    </ol>
+
+    <div class="warning">
+        <strong>Apple Review Tip:</strong> Reviewers will click your Privacy Policy and Support links. Make sure they load instantly and contain relevant, up-to-date information.
+    </div>
+
+    <!-- STEP 10: ARCHIVE -->
+    <h2 id="archive">10. Archive & Upload from Xcode</h2>
+
+    <h3>Pre-Archive Checklist</h3>
+    <ul class="checklist">
+        <li>Version is set to <code>1.0.1</code> and build to <code>3</code> (or next number)</li>
+        <li>Scheme is set to <strong>Release</strong> (not Debug)</li>
+        <li>Device is set to <strong>"Any iOS Device (arm64)"</strong></li>
+        <li>All capabilities are enabled (HealthKit, WeatherKit, Push, App Groups, IAP)</li>
+        <li>GoogleService-Info.plist is included in the bundle</li>
+        <li>No compiler warnings or errors</li>
+        <li>App icon is 1024x1024px, no alpha, 72 DPI, sRGB</li>
+    </ul>
+
+    <h3>Steps to Archive</h3>
+    <ol>
+        <li>In Xcode, select <strong>Product</strong> &rarr; <strong>Archive</strong> (or <code>Cmd + Shift + B</code> to build first)</li>
+        <li>Wait for the archive to complete (may take 2-5 minutes)</li>
+        <li>The Organizer window opens automatically showing your archive</li>
+        <li>Click <strong>Distribute App</strong></li>
+        <li>Select <strong>App Store Connect</strong> &rarr; <strong>Upload</strong></li>
+        <li>Keep defaults:
+            <ul>
+                <li>Upload your app's symbols: <strong>Yes</strong></li>
+                <li>Manage version and build number: <strong>Yes</strong></li>
             </ul>
-        </div>
+        </li>
+        <li>Select your Distribution Certificate and Provisioning Profile</li>
+        <li>Click <strong>Upload</strong></li>
+        <li>Wait for upload + processing (5-15 minutes)</li>
+    </ol>
+
+    <div class="success">
+        <strong>After Upload:</strong> Go to App Store Connect &rarr; your app &rarr; <strong>TestFlight</strong> tab. The build should appear within 15-30 minutes after processing completes. You'll receive an email when it's ready.
+    </div>
+
+    <h3>Common Archive Errors</h3>
+    <div class="card">
+        <table>
+            <tr><th>Error</th><th>Fix</th></tr>
+            <tr><td>Missing provisioning profile</td><td>Xcode &rarr; Signing &amp; Capabilities &rarr; check "Automatically manage signing"</td></tr>
+            <tr><td>Invalid icon</td><td>Ensure AppIcon is 1024x1024, no alpha channel, 72 DPI</td></tr>
+            <tr><td>ITMS-90078: Missing push entitlement</td><td>Enable Push Notifications capability in Xcode target</td></tr>
+            <tr><td>Invalid binary / bitcode</td><td>Set Build Settings &rarr; Enable Bitcode &rarr; No</td></tr>
+            <tr><td>Missing compliance info</td><td>Add encryption export compliance key to Info.plist</td></tr>
+        </table>
+    </div>
+
+    <!-- STEP 11: TESTFLIGHT -->
+    <h2 id="testflight">11. TestFlight Testing</h2>
+
+    <h3>Internal Testing</h3>
+    <ol>
+        <li>Once the build is processed, go to <strong>TestFlight</strong> tab</li>
+        <li>Click <strong>Internal Testing</strong> &rarr; create a group</li>
+        <li>Add testers (up to 100 internal testers)</li>
+        <li>The build is automatically available (no review needed)</li>
+    </ol>
+
+    <h3>External Testing (optional)</h3>
+    <ol>
+        <li>Create an <strong>External Testing</strong> group</li>
+        <li>Add the build and fill in test information</li>
+        <li>Submit for <strong>Beta App Review</strong> (usually takes 24-48 hours)</li>
+        <li>Once approved, add up to 10,000 external testers via email or public link</li>
+    </ol>
+
+    <h3>Testing Checklist</h3>
+    <ul class="checklist">
+        <li>Onboarding flow completes successfully</li>
+        <li>Water logging works (all amounts)</li>
+        <li>Beverage logging works (all types)</li>
+        <li>Reminders fire at scheduled times</li>
+        <li>Meal and medicine reminders trigger correctly</li>
+        <li>HealthKit read/write works when enabled</li>
+        <li>Location triggers fire at configured geofences</li>
+        <li>Garden plants grow with hydration progress</li>
+        <li>Subscription paywall displays correctly</li>
+        <li>Purchase flow works in sandbox</li>
+        <li>Restore purchases works</li>
+        <li>Apple Watch app syncs data</li>
+        <li>Widgets display correct data</li>
+        <li>Live Activity starts and updates</li>
+        <li>History charts render correctly</li>
+        <li>Settings toggles work (HealthKit, Analytics, Notifications)</li>
+        <li>App handles no-internet gracefully</li>
+        <li>Dark mode looks correct</li>
+    </ul>
+
+    <!-- STEP 12: SUBMIT -->
+    <h2 id="submit">12. Submit for Review</h2>
+
+    <h3>Final Submission Checklist</h3>
+    <ul class="checklist">
+        <li>All app metadata is filled in (name, subtitle, description, keywords)</li>
+        <li>Screenshots uploaded for required device sizes</li>
+        <li>App icon uploaded (1024x1024, delivered in the binary)</li>
+        <li>Privacy Policy URL is accessible and up-to-date</li>
+        <li>Support URL is accessible</li>
+        <li>App Privacy data collection is configured</li>
+        <li>In-app purchases are in "Ready to Submit" status</li>
+        <li>Each IAP has review screenshot and localization</li>
+        <li>Review notes are filled in with testing instructions</li>
+        <li>Contact information for the reviewer is provided</li>
+        <li>Age rating questionnaire is completed</li>
+        <li>Export compliance information is provided</li>
+        <li>Build is selected from the uploaded builds</li>
+    </ul>
+
+    <h3>Steps to Submit</h3>
+    <ol>
+        <li>In App Store Connect, go to your app &rarr; latest version</li>
+        <li>Verify all sections show green checkmarks</li>
+        <li>Select the uploaded <strong>Build</strong></li>
+        <li>Set <strong>Release</strong>: "Manually release this version" (recommended for first launch)</li>
+        <li>Click <strong>Submit for Review</strong></li>
+        <li>Confirm the submission</li>
+    </ol>
+
+    <h3>Review Timeline</h3>
+    <div class="card">
+        <ul>
+            <li>Most apps are reviewed within <strong>24-48 hours</strong></li>
+            <li>First-time submissions may take longer (up to 5 days)</li>
+            <li>Check status at App Store Connect or via email notifications</li>
+            <li>If rejected, fix the issues and resubmit (no need to re-upload the binary if it's metadata-only)</li>
+        </ul>
+    </div>
+
+    <!-- STEP 13: POST-LAUNCH -->
+    <h2 id="postlaunch">13. Post-Launch Checklist</h2>
+
+    <ul class="checklist">
+        <li>Release the app (if set to manual release)</li>
+        <li>Verify the app is live on the App Store</li>
+        <li>Test downloading and installing from the App Store</li>
+        <li>Verify in-app purchases work in production</li>
+        <li>Monitor Crashlytics for new crashes</li>
+        <li>Monitor Firebase Analytics for usage patterns</li>
+        <li>Check App Store Connect analytics (downloads, impressions)</li>
+        <li>Respond to early user reviews promptly</li>
+        <li>Set up App Store Connect notifications for reviews</li>
+        <li>Submit any marketing campaigns (Apple Search Ads, social media)</li>
+        <li>Share the App Store link on social media and website</li>
+    </ul>
+
+    <!-- STEP 14: REJECTION REASONS -->
+    <h2 id="rejection">14. Common Rejection Reasons & Fixes</h2>
+
+    <div class="card">
+        <h4>1. Guideline 5.1.1 - Data Collection and Storage (HealthKit)</h4>
+        <p><strong>Issue:</strong> HealthKit data is used for purposes beyond app functionality, or privacy policy doesn't adequately cover HealthKit.</p>
+        <p><strong>Fix:</strong> Ensure privacy policy explicitly states HealthKit data is never shared with third parties, never used for advertising, and is stored only on-device. Usage descriptions in Info.plist must be specific and accurate.</p>
+    </div>
+
+    <div class="card">
+        <h4>2. Guideline 3.1.2 - Subscriptions</h4>
+        <p><strong>Issue:</strong> Subscription terms not clearly communicated before purchase.</p>
+        <p><strong>Fix:</strong> Paywall must show: price, duration, trial length, auto-renewal info, and links to Terms/Privacy. Our PaywallView already includes all of these.</p>
+    </div>
+
+    <div class="card">
+        <h4>3. Guideline 2.1 - App Completeness</h4>
+        <p><strong>Issue:</strong> App crashes or has obvious bugs during review.</p>
+        <p><strong>Fix:</strong> Thoroughly test on real devices. Make sure all features work without a subscription (free features must be functional).</p>
+    </div>
+
+    <div class="card">
+        <h4>4. Guideline 5.1.2 - Data Use and Sharing (Location)</h4>
+        <p><strong>Issue:</strong> Location usage description is too vague.</p>
+        <p><strong>Fix:</strong> Info.plist descriptions clearly explain WHY location is needed and that data stays on-device. Our descriptions are already specific.</p>
+    </div>
+
+    <div class="card">
+        <h4>5. Guideline 2.3.7 - Accurate Metadata</h4>
+        <p><strong>Issue:</strong> Screenshots don't match actual app UI.</p>
+        <p><strong>Fix:</strong> Capture fresh screenshots from the latest build. Don't use mockups that differ from the real UI.</p>
+    </div>
+
+    <div class="card">
+        <h4>6. Missing In-App Purchase Metadata</h4>
+        <p><strong>Issue:</strong> IAP products show "Missing Metadata" status.</p>
+        <p><strong>Fix:</strong> Each IAP needs: display name, description, review screenshot, and pricing configured. Check all products in the Subscriptions tab.</p>
+    </div>
+
+    <hr class="divider">
+
+    <!-- QUICK REFERENCE -->
+    <h2>Quick Reference Card</h2>
+    <div class="card">
+        <table>
+            <tr><th>Item</th><th>Value</th></tr>
+            <tr><td>App Name</td><td>HydroFlow - Water Reminder</td></tr>
+            <tr><td>Bundle ID</td><td>com.shayona.hydroflow.ai</td></tr>
+            <tr><td>SKU</td><td>hydroflow-ios-001</td></tr>
+            <tr><td>Version</td><td>1.0.1</td></tr>
+            <tr><td>Build</td><td>3</td></tr>
+            <tr><td>Min iOS</td><td>17.0</td></tr>
+            <tr><td>Category</td><td>Health & Fitness / Lifestyle</td></tr>
+            <tr><td>Price</td><td>Free (IAP)</td></tr>
+            <tr><td>Monthly IAP</td><td>com.shayona.hydroflow.ai.premium.monthly ($4.99)</td></tr>
+            <tr><td>Annual IAP</td><td>com.shayona.hydroflow.ai.premium.annual ($29.99)</td></tr>
+            <tr><td>Lifetime IAP</td><td>com.shayona.hydroflow.ai.premium.lifetime ($49.99)</td></tr>
+            <tr><td>Privacy Policy</td><td>chiragthummar.github.io/hydroflow-legal/privacy-policy.html</td></tr>
+            <tr><td>Terms</td><td>chiragthummar.github.io/hydroflow-legal/terms-of-use.html</td></tr>
+            <tr><td>Support</td><td>chiragthummar.github.io/hydroflow-legal/support.html</td></tr>
+            <tr><td>Support Email</td><td>support@hydroflow.app</td></tr>
+        </table>
     </div>
 
     <div class="footer">
-        <p>HydroFlow · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-use.html">Terms of Use</a> · <a href="support.html">Support</a></p>
-        <p style="margin-top:8px">&copy; 2026 HydroFlow. Generated April 4, 2026.</p>
+        <p>&copy; 2026 HydroFlow. All rights reserved.</p>
+        <p style="margin-top: 4px; font-size: 12px;">Guide last updated: April 9, 2026</p>
     </div>
 
-</div>
 </body>
 </html>
